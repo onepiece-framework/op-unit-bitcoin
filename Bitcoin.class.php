@@ -116,9 +116,7 @@ class Bitcoin implements IF_UNIT
 		//	...
 		try{
 			if( $result = self::RPC('getaddressesbylabel',[$label]) ){
-				D($result);
 				foreach( $result as $key => $val ){
-					D($key, $val);
 
 					//	...
 					/*
