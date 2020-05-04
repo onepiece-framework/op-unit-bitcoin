@@ -148,7 +148,13 @@ class Bitcoin implements IF_UNIT
 	{
 		//	...
 		try{
+			//	Convert to md5.
+			$label = md5($label);
+
+			//	Get already generated address.
 			if( $result = self::RPC('getaddressesbylabel',[$label]) ){
+
+				//	Get first address.
 				foreach( $result as $key => $val ){
 
 					//	...
@@ -167,6 +173,7 @@ class Bitcoin implements IF_UNIT
 				//	...
 				throw new \Exception("Does not match this purpose. ({$purpose})");
 			};
+
 		}catch( \Exception $e ){
 			//	...
 			$error = json_decode($e->getMessage(), true);
