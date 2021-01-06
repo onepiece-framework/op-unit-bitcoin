@@ -175,11 +175,12 @@ class Bitcoin implements IF_UNIT
 			};
 
 		}catch( \Exception $e ){
+
 			//	...
 			$error = json_decode($e->getMessage(), true);
 
 			//	...
-			if( $error['code'] !== -11 ){
+			if(($error['code'] ?? null) !== -11 ){
 				throw $e;
 			};
 		};
