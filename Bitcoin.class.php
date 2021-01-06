@@ -42,7 +42,7 @@ class Bitcoin implements IF_UNIT
 	 */
 	function Database()
 	{
-		/* @var $_database BITCOIN */
+		/* @var $_database BITCOIN\Database */
 		static $_database;
 
 		//	...
@@ -156,8 +156,20 @@ class Bitcoin implements IF_UNIT
 
 	/** Get bitcoin address by label.
 	 *
+	 * <pre>
+	 * //	Get bitcoin address.
+	 * $this->Address();
+	 *
+	 * //	Get bitcoin address by label.
+	 * $this->Address('TEST');
+	 *
+	 * //	Get new address generate always.
+	 * $this->Address('TEST', null);
+	 * </pre>
+	 *
 	 * @created  2019-08-28
 	 * @param    string      $lable
+	 * @param    string      $purpose
 	 * @return   string      $address
 	 */
 	static function Address($label=null, $purpose='receive')
