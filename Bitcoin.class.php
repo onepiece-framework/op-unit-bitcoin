@@ -21,6 +21,7 @@ use OP\OP_CORE;
 use OP\OP_UNIT;
 use OP\IF_UNIT;
 use function OP\ConvertPath;
+use function OP\Encode;
 
 /** Bitcoin
  *
@@ -182,8 +183,13 @@ class Bitcoin implements IF_UNIT
 	{
 		//	...
 		try{
+			/*
 			//	Convert to md5.
 			$label = md5($label);
+			*/
+			//	...
+			$label = Encode($label);
+			$label = nl2br($label);
 
 			//	Get already generated address.
 			if( $result = self::RPC('getaddressesbylabel',[$label]) ){
